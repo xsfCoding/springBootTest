@@ -31,11 +31,20 @@ public class BookController {
      * @param id
      * @return
      */
-    @RequestMapping(value="/getBookById" ,method =RequestMethod.GET )
+    @RequestMapping(value="/getBookById/{id}" ,method =RequestMethod.GET )
     public Book getBookById(@PathVariable Long id){
          return bookService.findById(id);
     }
 
+
+    /**
+     * 通过名称查询单本书籍
+     *
+     */
+    @RequestMapping(value = "/getBookByName/name={name}",method = RequestMethod.GET)
+     public Book getBookByName(@PathVariable String name){
+         return bookService.findByName(name);
+     }
     /**
      * 增加书籍
      * 通过 @RequestBody 绑定实体参数，也通过 @RequestParam 传递参数

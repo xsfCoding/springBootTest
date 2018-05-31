@@ -9,20 +9,22 @@
   </resultMap>
 
 
-    <!--?<sql id="Base_Column_List" >-->
-        <!--?user_id, user_name, password, phone-->
-    <!--?</sql>-->
-    <!--?<select id="findByName"  resultMap="BaseResultMap"  parameterType="java.lang.String">-->
-        <!--?select-->
-        <!--?<include refid="Base_Column_List" />-->
-        <!--?from Book-->
-        <!--?where bookname = #{bookName,jdbcType=String}-->
-    <!--?</select>-->
-    <!--?<select id="getAllBooks" resultMap="BaseResultMap">-->
-        <!--?select-->
-        <!--?<include refid="Base_Column_List" />-->
-        <!--?from Book-->
-    <!--?</select>-->
+    <sql id="Base_Column_List" >
+        id,bookName,author,description
+    </sql>
+    <select id="findByName"  resultMap="BaseResultMap"  parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from Book
+        where bookname = #{bookName,jdbcType=VARCHAR}
+    </select>
+
+
+    <select id="getAllBooks" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from Book
+    </select>
   <insert id="insert" parameterType="com.alibaba.domain.Book">
     insert into Book (id, bookName, author, 
       description)
