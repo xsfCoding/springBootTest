@@ -1,57 +1,47 @@
 package com.alibaba.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.PathVariable;
 
-@Entity
 public class Book {
-    /**
-     * 书记编号
-     */
-    @Id
-    @GeneratedValue
-    private long id;
 
-    /**
-     * 书籍名称
-     */
+    private Integer id;
 
-    private String bookName;
+    private String bookname;
 
-    /**
-     * 书记作者
-     */
+    private String author;
 
-    private  String Author;
-    /**
-     * 描述
-     */
+    private String description;
 
-    private  String description;
+    public Book(Integer id, String bookname, String author, String description) {
+        this.id = id;
+        this.bookname = bookname;
+        this.author = author;
+        this.description = description;
+    }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getBookName() {
-        return bookName;
+    public String getBookname() {
+        return bookname;
     }
 
-    public void setBookName(String bookName) {
-        this.bookName = bookName;
+    public void setBookname(String bookname) {
+        this.bookname = bookname == null ? null : bookname.trim();
     }
 
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
     public void setAuthor(String author) {
-        Author = author;
+        this.author = author == null ? null : author.trim();
     }
 
     public String getDescription() {
@@ -59,6 +49,6 @@ public class Book {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description == null ? null : description.trim();
     }
 }

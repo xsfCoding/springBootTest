@@ -1,5 +1,6 @@
 package com.alibaba;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 //@EnableAutoConfiguration()
 //@RequestMapping("/Hello")
 @SpringBootApplication
+//@MapperScan("com.alibaba.dao")
 public class HelloWorld{
 
 //    @RequestMapping(value = "/sayhello", method =RequestMethod.GET)

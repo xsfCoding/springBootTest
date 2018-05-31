@@ -41,7 +41,7 @@ public class BookController {
      * 通过 @RequestBody 绑定实体参数，也通过 @RequestParam 传递参数
      */
     @RequestMapping(value = "/create",method = RequestMethod.POST)
-    public  Book insertBook(@RequestBody Book book){
+    public int insertBook(@RequestBody Book book){
         return bookService.insertBook(book);
     }
 
@@ -75,7 +75,12 @@ public class BookController {
 
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/allBooks/{pageNum}/{pageSize}", produces = {"application/json;charset=UTF-8"})
+    public Object findAllUser(@PathVariable("pageNum") int pageNum, @PathVariable("pageSize") int pageSize){
 
+        return bookService.getAllBooks(pageNum,pageSize);
+    }
 
 
 

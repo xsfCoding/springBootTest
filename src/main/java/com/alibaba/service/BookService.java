@@ -7,7 +7,7 @@ import java.util.List;
 public interface BookService {
 
     //新增书籍
-    Book insertBook(Book book);
+    int insertBook(Book book);
 
     //删除书籍
     Book deleteBook(Long id);
@@ -21,4 +21,7 @@ public interface BookService {
     //获取特定书籍
     Book findById(Long id);
 
+    Book findByName(String name);
+    //分页
+    List<Book> getAllBooks(int pageNum, int pageSize);
 }
